@@ -31,13 +31,22 @@ paddle_two.goto(350, 0)
 
 # Ball
 ball = turtle.Turtle()
-ball.speed(1)
+ball.speed(0)
 ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
 ball.dx = 0.20
 ball.dy = 0.20
+
+# Pen 
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("white")
+pen.penup() 
+pen.hideturtle()
+pen.goto(0, 250)
+pen.write("Player 1: 0  Player 2: 0", align="center", font=("Courier", 22, "normal"))
 
 # Functions
 def paddle_one_up():
