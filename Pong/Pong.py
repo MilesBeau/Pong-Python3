@@ -2,6 +2,7 @@
 
 # Importing turtle and setting up wn 
 import turtle
+import winsound 
 
 wn = turtle.Screen()
 wn.title("Pong")
@@ -94,10 +95,12 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
+        winsound.PlaySound("D:/Python Projects/bounce.wav", winsound.SND_ASYNC)
 
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
+        winsound.PlaySound("D:/Python Projects/bounce.wav", winsound.SND_ASYNC)
 
     if ball.xcor() > 390:
         ball.goto(0, 0)
@@ -105,6 +108,7 @@ while True:
         score_one += 1
         pen.clear()
         pen.write("Player 1: {}  Player 2: {}".format(score_one, score_two), align="center", font=("Courier", 22, "normal"))
+        
        
     if ball.xcor() < -390:
         ball.goto(0, 0)
@@ -112,14 +116,17 @@ while True:
         score_two += 1
         pen.clear()
         pen.write("Player 1: {}  Player 2: {}".format(score_one, score_two), align="center", font=("Courier", 22, "normal"))
-
+        
+  
     # Paddle and Ball collisions 
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_two.ycor() + 40 and ball.ycor() > paddle_two.ycor() -40):
         ball.setx(340)
         ball.dx *= -1
+        winsound.PlaySound("D:/Python Projects/bounce.wav", winsound.SND_ASYNC)
     
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_one.ycor() + 40 and ball.ycor() > paddle_one.ycor() -40):
         ball.setx(-340)
         ball.dx *= -1
+        winsound.PlaySound("D:/Python Projects/bounce.wav", winsound.SND_ASYNC)
     
     
