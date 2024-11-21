@@ -9,6 +9,10 @@ wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
 
+# Score
+score_one = 0
+score_two = 0
+
 # Game Objects
 
 # Paddle 1
@@ -98,10 +102,16 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_one += 1
+        pen.clear()
+        pen.write("Player 1: {}  Player 2: {}".format(score_one, score_two), align="center", font=("Courier", 22, "normal"))
        
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_two += 1
+        pen.clear()
+        pen.write("Player 1: {}  Player 2: {}".format(score_one, score_two), align="center", font=("Courier", 22, "normal"))
 
     # Paddle and Ball collisions 
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_two.ycor() + 40 and ball.ycor() > paddle_two.ycor() -40):
